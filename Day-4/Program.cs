@@ -14,10 +14,10 @@ static void Part1()
         List<int> cardNumbers = [];
         List<int> winningNumbers = [];
 
-        line = line.Substring(line.IndexOf(':') + 2);
+        line = line[(line.IndexOf(':') + 2)..];
 
-        string cardNumberString = line.Substring(0, line.IndexOf('|') - 1);
-        string winningNumberString = line.Substring(line.IndexOf('|') + 2);
+        string cardNumberString = line[..(line.IndexOf('|') - 1)];
+        string winningNumberString = line[(line.IndexOf('|') + 2)..];
 
         foreach (string cardNumber in cardNumberString.Split(' '))
             if (!string.IsNullOrEmpty(cardNumber))
