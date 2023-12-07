@@ -51,7 +51,8 @@ static void Part2()
 
     string? line = reader.ReadLine();
 
-    int[] cardInstances = new int[197];
+    int[] cardInstances = new int[512];
+    int instanceCount = 0;
 
     for (int i = 0; i < cardInstances.Length; i++)
         cardInstances[i] = 1;
@@ -86,8 +87,10 @@ static void Part2()
         for (int i = 0; i < winningCount; i++)
             cardInstances[cardNumber + i] += cardInstances[cardNumber - 1];
 
+        instanceCount++;
+
         line = reader.ReadLine();
     }
 
-    Console.WriteLine($"Summa 2: {cardInstances.Sum()}");
+    Console.WriteLine($"Summa 2: {cardInstances.Sum() - (cardInstances.Length - instanceCount)}");
 }
